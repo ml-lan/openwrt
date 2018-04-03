@@ -1,0 +1,561 @@
+Package: bluez-daemon
+Version: 5.47-1
+Depends: libc, bluez-libs, bluez-utils, dbus, libical
+Source: feeds/packages/utils/bluez
+License: GPL-2.0+
+LicenseFiles: COPYING
+Section: utils
+Maintainer: Nicolas Thill <nico@openwrt.org>
+Architecture: ramips_24kec
+Installed-Size: 512461
+Filename: bluez-daemon_5.47-1_ramips_24kec.ipk
+Size: 512477
+MD5Sum: b46ce95d145a6bdaed4aee5a3dc072ed
+SHA256sum: b55ad42fdf4309ea72d7814cbe3347ecba45a9e1e5de69610bbe1d155b6581c6
+Description:  Bluetooth daemon
+
+Package: bluez-examples
+Version: 5.47-1
+Depends: libc, python
+Source: feeds/packages/utils/bluez
+License: GPL-2.0+
+LicenseFiles: COPYING
+Section: utils
+Maintainer: Nicolas Thill <nico@openwrt.org>
+Architecture: ramips_24kec
+Installed-Size: 27827
+Filename: bluez-examples_5.47-1_ramips_24kec.ipk
+Size: 28651
+MD5Sum: 0ec5d4c5ca77b5229e8f9a577a7eef3a
+SHA256sum: e7153d7d203ebe49827418f75a031c8e4fb5408ca93eb88b29b6312f4da859c9
+Description:  contains many examples apps for bluetooth, requiring python
+
+Package: bluez-libs
+Version: 5.47-1
+Depends: libc, libpthread, kmod-bluetooth
+Source: feeds/packages/utils/bluez
+License: GPL-2.0+
+LicenseFiles: COPYING
+Section: libs
+Maintainer: Nicolas Thill <nico@openwrt.org>
+Architecture: ramips_24kec
+Installed-Size: 50276
+Filename: bluez-libs_5.47-1_ramips_24kec.ipk
+Size: 50907
+MD5Sum: d7baf51b41eab0b8d9d528532237ef51
+SHA256sum: 45a2e1ec78427d8092af2bb4ba850655f2dd2abd1ddfc5df986b8fa52dfbfbc1
+Description:  Bluetooth library
+
+Package: bluez-utils
+Version: 5.47-1
+Depends: libc, bluez-libs, libpthread, librt, glib2, libncurses, libreadline
+Source: feeds/packages/utils/bluez
+License: GPL-2.0+
+LicenseFiles: COPYING
+Section: utils
+Maintainer: Nicolas Thill <nico@openwrt.org>
+Architecture: ramips_24kec
+Installed-Size: 908789
+Filename: bluez-utils_5.47-1_ramips_24kec.ipk
+Size: 908389
+MD5Sum: 4a75e38677782158f7dcf1c7ae6a2af9
+SHA256sum: d757bbf1ff2e09b1ac0c76c3df2ee255eebcf0013678132d3e2e60f59678711d
+Description:  Bluetooth utilities
+
+Package: dbus
+Version: 1.9.14-1
+Depends: libc, libexpat, libdbus
+Source: feeds/packages/utils/dbus
+License: AFL-2.1
+Section: utils
+Maintainer: Steven Barth <cyrus@openwrt.org>
+Architecture: ramips_24kec
+Installed-Size: 92286
+Filename: dbus_1.9.14-1_ramips_24kec.ipk
+Size: 92723
+MD5Sum: d11201ec37bd94ee6f3ed1a79cae1c89
+SHA256sum: 99e75ab0748d979213b7eb7020a15eb8628df6f0e3c5cd62dc79842c8ef758b3
+Description:  Simple interprocess messaging system (daemon)
+
+Package: glib2
+Version: 2.43.4-1
+Depends: libc, zlib, libpthread, libffi, libattr
+Source: feeds/packages/libs/glib2
+Section: libs
+Maintainer: Peter Wagner <tripolar@gmx.at>
+Architecture: ramips_24kec
+Installed-Size: 874314
+Filename: glib2_2.43.4-1_ramips_24kec.ipk
+Size: 869816
+MD5Sum: 0838ee87b480f210e0fad1b4f3426e7a
+SHA256sum: cf40826f60b434f6b3efcde6c6930c361ee87db7af112be8928ced8b1911e01f
+Description:  The GLib library of C routines
+
+Package: libattr
+Version: 20150220-1
+Depends: libc
+Source: feeds/packages/utils/attr
+License: LGPL-2.1 GPL-2.0
+LicenseFiles: doc/COPYING doc/COPYING.LGPL
+Section: libs
+Maintainer: Maxim Storchak <m.storchak@gmail.com>
+Architecture: ramips_24kec
+Installed-Size: 6426
+Filename: libattr_20150220-1_ramips_24kec.ipk
+Size: 7240
+MD5Sum: fa73ccf46fae365fd45e8b66160d23ed
+SHA256sum: 58c234b434f2d5dd9744a32d8147f1f7fa6f111ed3fedb76ed3a9ad5ebd6479f
+Description:  Extended attributes support
+ This package provides libattr
+
+Package: libdb47
+Version: 4.7.25.4.NC-4.1
+Depends: libc, libxml2
+Provides: libdb47-full
+Source: feeds/packages/libs/db47
+License: Sleepycat
+LicenseFiles: LICENSE
+Section: libs
+Maintainer: Marcel Denia <naoir@gmx.net>
+Architecture: ramips_24kec
+Installed-Size: 473482
+Filename: libdb47_4.7.25.4.NC-4.1_ramips_24kec.ipk
+Size: 473481
+MD5Sum: f7bdb3f1905570c653b5de58f8a6eddd
+SHA256sum: 9eb68284d467a935cbcdb728bd1470119e973818f66f318175c41061a1a7c7a2
+Description:  Berkeley DB library (4.7).
+
+Package: libdbus
+Version: 1.9.14-1
+Depends: libc, libpthread
+Source: feeds/packages/utils/dbus
+License: AFL-2.1
+Section: utils
+Maintainer: Steven Barth <cyrus@openwrt.org>
+Architecture: ramips_24kec
+Installed-Size: 102833
+Filename: libdbus_1.9.14-1_ramips_24kec.ipk
+Size: 103637
+MD5Sum: d29980df1ef2e8daccf4d14c2f0fd32c
+SHA256sum: 99b3a44b2332f790a2a306eae12fb5bcd51b5b36f5703b8fb140c4bf40a6ce2e
+Description:  Simple interprocess messaging system (library)
+
+Package: libexpat
+Version: 2.1.0-3
+Depends: libc
+Source: feeds/packages/libs/expat
+License: MIT
+LicenseFiles: COPYING
+Section: libs
+Maintainer: Steven Barth <cyrus@openwrt.org>
+Architecture: ramips_24kec
+Installed-Size: 52597
+Filename: libexpat_2.1.0-3_ramips_24kec.ipk
+Size: 53268
+MD5Sum: 898e3549e519d8e6b5f445302c1a80f8
+SHA256sum: b786a098b31d98323560c93550bacd98651a489668ae16bbc6f9f5235819d4b5
+Description:  A fast, non-validating, stream-oriented XML parsing library.
+
+Package: libffi
+Version: 3.0.13-1
+Depends: libc
+Source: feeds/packages/libs/libffi
+License: MIT
+LicenseFiles: LICENSE
+Section: libs
+Maintainer: Peter Wagner <tripolar@gmx.at>
+Architecture: ramips_24kec
+Installed-Size: 5311
+Filename: libffi_3.0.13-1_ramips_24kec.ipk
+Size: 6307
+MD5Sum: d11b7c4d235de932f16629ce6b00a309
+SHA256sum: eb16047266d3c02540185f24144b3a7216698fefa573bbab153f0ac1266023bd
+Description:  The libffi library provides a portable, high level programming interface to
+ various calling conventions. This allows a programmer to call any function
+ specified by a call interface description at run-time.
+ 
+ FFI stands for Foreign Function Interface. A foreign function interface is the
+ popular name for the interface that allows code written in one language to call
+ code written in another language. The libffi library really only provides the
+ lowest, machine dependent layer of a fully featured foreign function interface.
+ A layer must exist above libffi that handles type conversions for values passed
+ between the two languages.
+
+Package: libgdbm
+Version: 1.11-1
+Depends: libc
+Source: feeds/packages/libs/gdbm
+License: GPL-3.0+
+LicenseFiles: COPYING
+Section: libs
+Maintainer: Marcel Denia <naoir@gmx.net>
+Architecture: ramips_24kec
+Installed-Size: 17319
+Filename: libgdbm_1.11-1_ramips_24kec.ipk
+Size: 18139
+MD5Sum: 2fd440a3b2f70ea414dde2ea4614bea6
+SHA256sum: 15f948e32403d5f210cfe9079d423ee3d23ac49c3125b983ba4b082650821232
+Description:  GNU database manager library
+ GNU dbm is a set of database routines that use extendible hashing and
+ works similar to the standard UNIX dbm routines.
+
+Package: libical
+Version: 1.0-1
+Depends: libc, libpthread
+Source: feeds/packages/libs/libical
+License: LGPL-2.1 MPL-1.0
+LicenseFiles: COPYING
+Section: libs
+Maintainer: Nicolas Thill <nico@openwrt.org>
+Architecture: ramips_24kec
+Installed-Size: 143845
+Filename: libical_1.0-1_ramips_24kec.ipk
+Size: 143061
+MD5Sum: 218a1a87a20f12e0bfa8893cfcff48ee
+SHA256sum: ec10db32eabc9e854a4f70490847ae3850dfff65aa36e889aae914719a741640
+Description:  This package provides a a read/write library of classes for object oriented
+ languages (Initial goals of PHP and Python) that implement and enforce the iCal
+ standard (RFC 2445).
+
+Package: libsqlite3
+Version: 3081101-1
+Depends: libc, libpthread
+Source: feeds/packages/libs/sqlite3
+License: PUBLICDOMAIN
+Section: libs
+Maintainer: Etienne CHAMPETIER <champetier.etienne@gmail.com>
+Architecture: ramips_24kec
+Installed-Size: 365943
+Filename: libsqlite3_3081101-1_ramips_24kec.ipk
+Size: 366401
+MD5Sum: d9bee15b9a7e7a4f76a74c974b5b4921
+SHA256sum: bbd4391190bbb61f1457b894dccdc0acdc5472cd5e0375bf6c7f6a6f0dcf8ccb
+Description:  SQLite is a small C library that implements a self-contained, embeddable,
+ zero-configuration SQL database engine.
+ This package contains the SQLite (v3.x) shared library, used by other
+ programs.
+
+Package: libxml2
+Version: 2.9.2-3
+Depends: libc, libpthread, zlib
+Source: feeds/packages/libs/libxml2
+License: MIT
+LicenseFiles: COPYING
+Section: libs
+Maintainer: Michael Heimpold <mhei@heimpold.de>
+Architecture: ramips_24kec
+Installed-Size: 474933
+Filename: libxml2_2.9.2-3_ramips_24kec.ipk
+Size: 472984
+MD5Sum: fee72023e7d9ebd181859b4c14bfba76
+SHA256sum: 581017862122b21e4977bd06af9d479d29150d5d9c89e7faee121f29918b74c8
+Description:  A library for manipulating XML and HTML resources.
+
+Package: python-base
+Version: 2.7.12-1
+Depends: libc, libpthread, zlib
+Source: feeds/packages/lang/python
+License: PSF
+LicenseFiles: LICENSE Modules/_ctypes/libffi_msvc/LICENSE Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi/LICENSE Modules/_ctypes/libffi_osx/LICENSE Tools/pybench/LICENSE
+Section: lang
+Maintainer: Alexandru Ardelean <ardeleanalex@gmail.com>
+Architecture: ramips_24kec
+Installed-Size: 701003
+Filename: python-base_2.7.12-1_ramips_24kec.ipk
+Size: 698398
+MD5Sum: 74fc42daf80f1015f783a10537c3167e
+SHA256sum: df558fb6b7e116a3f04d78d37046f28afab1b09cdfca97bd884793c3310790bd
+Description:  This package contains only the interpreter and the bare minimum
+ for the interpreter to start.
+
+Package: python-codecs
+Version: 2.7.12-1
+Depends: libc, python-light
+Source: feeds/packages/lang/python
+License: PSF
+LicenseFiles: LICENSE Modules/_ctypes/libffi_msvc/LICENSE Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi/LICENSE Modules/_ctypes/libffi_osx/LICENSE Tools/pybench/LICENSE
+Section: lang
+Maintainer: Alexandru Ardelean <ardeleanalex@gmail.com>
+Architecture: ramips_24kec
+Installed-Size: 838566
+Filename: python-codecs_2.7.12-1_ramips_24kec.ipk
+Size: 818229
+MD5Sum: 062c45d8889face3b8730dcf6fe8d529
+SHA256sum: bcce6a136905b3d0fd7a3d0af6f6208de2b628538df5e78f4f7da4a059ae7394
+Description:  Python 2.7 codecs + unicode support
+
+Package: python-compiler
+Version: 2.7.12-1
+Depends: libc, python-light
+Source: feeds/packages/lang/python
+License: PSF
+LicenseFiles: LICENSE Modules/_ctypes/libffi_msvc/LICENSE Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi/LICENSE Modules/_ctypes/libffi_osx/LICENSE Tools/pybench/LICENSE
+Section: lang
+Maintainer: Alexandru Ardelean <ardeleanalex@gmail.com>
+Architecture: ramips_24kec
+Installed-Size: 38022
+Filename: python-compiler_2.7.12-1_ramips_24kec.ipk
+Size: 38929
+MD5Sum: a273cc34dbf37881f7fab1318fd30da0
+SHA256sum: fb1e262c5bbdf8d1934ad2af25e1a60711eb2a4b867c41b79bc89f8ddbba2250
+Description:  Python 2.7 compiler module
+
+Package: python-ctypes
+Version: 2.7.12-1
+Depends: libc, python-light
+Source: feeds/packages/lang/python
+License: PSF
+LicenseFiles: LICENSE Modules/_ctypes/libffi_msvc/LICENSE Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi/LICENSE Modules/_ctypes/libffi_osx/LICENSE Tools/pybench/LICENSE
+Section: lang
+Maintainer: Alexandru Ardelean <ardeleanalex@gmail.com>
+Architecture: ramips_24kec
+Installed-Size: 98914
+Filename: python-ctypes_2.7.12-1_ramips_24kec.ipk
+Size: 99759
+MD5Sum: 860e4ccbebec6b6c09bb97928e9ab0d0
+SHA256sum: 544339823aaab20722eccb1bbe72936e3b2c925bc9067d3812ae668cbe991947
+Description:  Python 2.7 ctypes module
+
+Package: python-db
+Version: 2.7.12-1
+Depends: libc, python-light, libdb47
+Source: feeds/packages/lang/python
+License: PSF
+LicenseFiles: LICENSE Modules/_ctypes/libffi_msvc/LICENSE Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi/LICENSE Modules/_ctypes/libffi_osx/LICENSE Tools/pybench/LICENSE
+Section: lang
+Maintainer: Alexandru Ardelean <ardeleanalex@gmail.com>
+Architecture: ramips_24kec
+Installed-Size: 98971
+Filename: python-db_2.7.12-1_ramips_24kec.ipk
+Size: 99528
+MD5Sum: 34e051d22981854275ec5a19d8ec3d75
+SHA256sum: f3cf446bfb50864c0df188e7a22d41e59cd0d5a8a0aa1fca8e09bfa7350a49a2
+Description:  Python 2.7 db module
+
+Package: python-decimal
+Version: 2.7.12-1
+Depends: libc, python-light
+Source: feeds/packages/lang/python
+License: PSF
+LicenseFiles: LICENSE Modules/_ctypes/libffi_msvc/LICENSE Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi/LICENSE Modules/_ctypes/libffi_osx/LICENSE Tools/pybench/LICENSE
+Section: lang
+Maintainer: Alexandru Ardelean <ardeleanalex@gmail.com>
+Architecture: ramips_24kec
+Installed-Size: 47101
+Filename: python-decimal_2.7.12-1_ramips_24kec.ipk
+Size: 48011
+MD5Sum: adee3a9bfba927ca07001e81024fabf9
+SHA256sum: f5c865af33eca553549096b33a1f6134afd2e7b59818772f3c762a6080a43b3c
+Description:  Python 2.7 decimal module
+
+Package: python-distutils
+Version: 2.7.12-1
+Depends: libc, python-light
+Source: feeds/packages/lang/python
+License: PSF
+LicenseFiles: LICENSE Modules/_ctypes/libffi_msvc/LICENSE Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi/LICENSE Modules/_ctypes/libffi_osx/LICENSE Tools/pybench/LICENSE
+Section: lang
+Maintainer: Alexandru Ardelean <ardeleanalex@gmail.com>
+Architecture: ramips_24kec
+Installed-Size: 544656
+Filename: python-distutils_2.7.12-1_ramips_24kec.ipk
+Size: 545531
+MD5Sum: b6f5eae2d14cc473025129acd5d304a7
+SHA256sum: 784646841b52266b1eda985f4a679212ea4f69f2e88f7002725a1aa729feea2f
+Description:  Python 2.7 distutils
+
+Package: python-email
+Version: 2.7.12-1
+Depends: libc, python-light
+Source: feeds/packages/lang/python
+License: PSF
+LicenseFiles: LICENSE Modules/_ctypes/libffi_msvc/LICENSE Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi/LICENSE Modules/_ctypes/libffi_osx/LICENSE Tools/pybench/LICENSE
+Section: lang
+Maintainer: Alexandru Ardelean <ardeleanalex@gmail.com>
+Architecture: ramips_24kec
+Installed-Size: 142404
+Filename: python-email_2.7.12-1_ramips_24kec.ipk
+Size: 143327
+MD5Sum: 7d47c5a6824ada598d568cc2c075ead9
+SHA256sum: b0c24c491bcc1608b89c4ce73921400cf4007b004d3e7ecd9d42b59c96c91bc2
+Description:  Python 2.7 email module
+
+Package: python-gdbm
+Version: 2.7.12-1
+Depends: libc, python-light, libgdbm
+Source: feeds/packages/lang/python
+License: PSF
+LicenseFiles: LICENSE Modules/_ctypes/libffi_msvc/LICENSE Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi/LICENSE Modules/_ctypes/libffi_osx/LICENSE Tools/pybench/LICENSE
+Section: lang
+Maintainer: Alexandru Ardelean <ardeleanalex@gmail.com>
+Architecture: ramips_24kec
+Installed-Size: 5592
+Filename: python-gdbm_2.7.12-1_ramips_24kec.ipk
+Size: 6397
+MD5Sum: 95c752359e971b5d97d76ce55a21fdb1
+SHA256sum: c09932c908cc63b2f302c6bb5d8137cb108b77909bad661c54659d7a4e6a8e9f
+Description:  Python 2.7 gdbm module
+
+Package: python-light
+Version: 2.7.12-1
+Depends: libc, python-base, libffi, libbz2
+Source: feeds/packages/lang/python
+License: PSF
+LicenseFiles: LICENSE Modules/_ctypes/libffi_msvc/LICENSE Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi/LICENSE Modules/_ctypes/libffi_osx/LICENSE Tools/pybench/LICENSE
+Section: lang
+Maintainer: Alexandru Ardelean <ardeleanalex@gmail.com>
+Architecture: ramips_24kec
+Installed-Size: 1237289
+Filename: python-light_2.7.12-1_ramips_24kec.ipk
+Size: 1237012
+MD5Sum: 275d19f11e93e80a8d45ed77f0dcca92
+SHA256sum: 05cdef12e70ef78d47155a0f8e2a8fa4ee7e54bcee7376eb98b69e656a539f9b
+Description:  This package is essentially the python-base package plus
+ a few of the rarely used (and big) libraries stripped out
+ into separate packages.
+
+Package: python-logging
+Version: 2.7.12-1
+Depends: libc, python-light
+Source: feeds/packages/lang/python
+License: PSF
+LicenseFiles: LICENSE Modules/_ctypes/libffi_msvc/LICENSE Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi/LICENSE Modules/_ctypes/libffi_osx/LICENSE Tools/pybench/LICENSE
+Section: lang
+Maintainer: Alexandru Ardelean <ardeleanalex@gmail.com>
+Architecture: ramips_24kec
+Installed-Size: 37160
+Filename: python-logging_2.7.12-1_ramips_24kec.ipk
+Size: 38035
+MD5Sum: f93216b0cf2712ead19c9015c0c31deb
+SHA256sum: a5687f69705e312fcf562f6d7cb489806cb31e86b9dbe9b1d61501ba66c7caaf
+Description:  Python 2.7 logging module
+
+Package: python-multiprocessing
+Version: 2.7.12-1
+Depends: libc, python-light
+Source: feeds/packages/lang/python
+License: PSF
+LicenseFiles: LICENSE Modules/_ctypes/libffi_msvc/LICENSE Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi/LICENSE Modules/_ctypes/libffi_osx/LICENSE Tools/pybench/LICENSE
+Section: lang
+Maintainer: Alexandru Ardelean <ardeleanalex@gmail.com>
+Architecture: ramips_24kec
+Installed-Size: 46456
+Filename: python-multiprocessing_2.7.12-1_ramips_24kec.ipk
+Size: 47235
+MD5Sum: f4086cfe1a129f56734e15c572ce1eba
+SHA256sum: 641bbbdd8e685aa64c783bb4f848d90106b66c33cc8808158158567703db83d5
+Description:  Python 2.7 multiprocessing
+
+Package: python-ncurses
+Version: 2.7.12-1
+Depends: libc, python-light, libncurses
+Source: feeds/packages/lang/python
+License: PSF
+LicenseFiles: LICENSE Modules/_ctypes/libffi_msvc/LICENSE Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi/LICENSE Modules/_ctypes/libffi_osx/LICENSE Tools/pybench/LICENSE
+Section: lang
+Maintainer: Alexandru Ardelean <ardeleanalex@gmail.com>
+Architecture: ramips_24kec
+Installed-Size: 25737
+Filename: python-ncurses_2.7.12-1_ramips_24kec.ipk
+Size: 26344
+MD5Sum: b5bf413b22086b283004e17db7992e47
+SHA256sum: 4a0cd52bacd0944ef30cca2d8955cd9252a6b60e8b2067630c6d6b75306afa39
+Description:  Python 2.7 ncurses module
+
+Package: python-openssl
+Version: 2.7.12-1
+Depends: libc, python-light, libopenssl
+Source: feeds/packages/lang/python
+License: PSF
+LicenseFiles: LICENSE Modules/_ctypes/libffi_msvc/LICENSE Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi/LICENSE Modules/_ctypes/libffi_osx/LICENSE Tools/pybench/LICENSE
+Section: lang
+Maintainer: Alexandru Ardelean <ardeleanalex@gmail.com>
+Architecture: ramips_24kec
+Installed-Size: 32996
+Filename: python-openssl_2.7.12-1_ramips_24kec.ipk
+Size: 33504
+MD5Sum: 94a2fae5da934c658ef90ef568b9c107
+SHA256sum: 857a728c3805e69e43029e08ae2be60d97101c542ee620c4ff0d17d9b7b56008
+Description:  Python 2.7 SSL module
+
+Package: python-pydoc
+Version: 2.7.12-1
+Depends: libc, python-light
+Source: feeds/packages/lang/python
+License: PSF
+LicenseFiles: LICENSE Modules/_ctypes/libffi_msvc/LICENSE Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi/LICENSE Modules/_ctypes/libffi_osx/LICENSE Tools/pybench/LICENSE
+Section: lang
+Maintainer: Alexandru Ardelean <ardeleanalex@gmail.com>
+Architecture: ramips_24kec
+Installed-Size: 191696
+Filename: python-pydoc_2.7.12-1_ramips_24kec.ipk
+Size: 192692
+MD5Sum: f124c355abeb08e07abb09e6f6fc5ae9
+SHA256sum: 23d0906afed5af9db2cdc7c9af32b0acf452987542d7defa1c8dbd345f9c4da4
+Description:  Python 2.7 pydoc module
+
+Package: python-sqlite3
+Version: 2.7.12-1
+Depends: libc, python-light, libsqlite3
+Source: feeds/packages/lang/python
+License: PSF
+LicenseFiles: LICENSE Modules/_ctypes/libffi_msvc/LICENSE Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi/LICENSE Modules/_ctypes/libffi_osx/LICENSE Tools/pybench/LICENSE
+Section: lang
+Maintainer: Alexandru Ardelean <ardeleanalex@gmail.com>
+Architecture: ramips_24kec
+Installed-Size: 42272
+Filename: python-sqlite3_2.7.12-1_ramips_24kec.ipk
+Size: 43147
+MD5Sum: d9ebb1ea28195eb3cd308db9f267ae87
+SHA256sum: 1b29b660af4065d350b0749358dcc1e38ff94eaf4fd407b7ae7a8f5e39736194
+Description:  Python 2.7 sqlite3 module
+
+Package: python-unittest
+Version: 2.7.12-1
+Depends: libc, python-light
+Source: feeds/packages/lang/python
+License: PSF
+LicenseFiles: LICENSE Modules/_ctypes/libffi_msvc/LICENSE Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi/LICENSE Modules/_ctypes/libffi_osx/LICENSE Tools/pybench/LICENSE
+Section: lang
+Maintainer: Alexandru Ardelean <ardeleanalex@gmail.com>
+Architecture: ramips_24kec
+Installed-Size: 53769
+Filename: python-unittest_2.7.12-1_ramips_24kec.ipk
+Size: 54658
+MD5Sum: ce35060d06ce62af956c54d84273d8e3
+SHA256sum: 6272e1da1a6ef47bfc304a1be69834d0fcd3740b3d28485603f58083b0ebd9aa
+Description:  Python 2.7 unittest module
+
+Package: python-xml
+Version: 2.7.12-1
+Depends: libc, python-light
+Source: feeds/packages/lang/python
+License: PSF
+LicenseFiles: LICENSE Modules/_ctypes/libffi_msvc/LICENSE Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi/LICENSE Modules/_ctypes/libffi_osx/LICENSE Tools/pybench/LICENSE
+Section: lang
+Maintainer: Alexandru Ardelean <ardeleanalex@gmail.com>
+Architecture: ramips_24kec
+Installed-Size: 156784
+Filename: python-xml_2.7.12-1_ramips_24kec.ipk
+Size: 157447
+MD5Sum: f84bcb8f9fa2b12d166bc2d7e0909738
+SHA256sum: 953a40ce9a171e3f916acee9f5bbd3170037a62ae732bddacf909aec9cf33aa2
+Description:  Python 2.7 xml libs
+
+Package: python
+Version: 2.7.12-1
+Depends: libc, python-light, python-ctypes, python-pydoc, python-multiprocessing, python-logging, python-codecs, python-sqlite3, python-gdbm, python-email, python-distutils, python-openssl, python-xml, python-compiler, python-db, python-decimal, python-unittest, python-ncurses
+Source: feeds/packages/lang/python
+License: PSF
+LicenseFiles: LICENSE Modules/_ctypes/libffi_msvc/LICENSE Modules/_ctypes/darwin/LICENSE Modules/_ctypes/libffi/LICENSE Modules/_ctypes/libffi_osx/LICENSE Tools/pybench/LICENSE
+Section: lang
+Maintainer: Alexandru Ardelean <ardeleanalex@gmail.com>
+Architecture: ramips_24kec
+Installed-Size: 106
+Filename: python_2.7.12-1_ramips_24kec.ipk
+Size: 1025
+MD5Sum: 35be82d000914997e5d293e50ec82696
+SHA256sum: 0607955f05ae97d27efe9fa74613b32a675f5a440266562c49c7b946cf83c136
+Description:  This package contains the (almost) full Python install.
+ It's python-light + all other packages.
+
