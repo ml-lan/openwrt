@@ -1,0 +1,12 @@
+[General]
+Name=HC-06
+Class=0x001f00
+SupportedTechnologies=BR/EDR;
+Trusted=true
+Blocked=false
+Services=00001101-0000-1000-8000-00805f9b34fb;
+
+[LinkKey]
+Key=576B44A7D5197FDADC530E95B3C95A65
+Type=0
+PINLength=0
