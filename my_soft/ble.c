@@ -15,6 +15,8 @@ typedef struct{
 int main(int argc,char **argv)
 {
 
+    while(1)
+    {
     system("wget http://104.224.163.27:8080/BLE/servlet/QueryDevicesServlet");
     system("mv QueryDevicesServlet QueryResult.json");
     FILE *f;
@@ -44,9 +46,9 @@ int main(int argc,char **argv)
     strcpy(dd[0].device_status,cJSON_GetObjectItem(json1,"device_status")->valuestring);
     strcpy(dd[1].device_status,cJSON_GetObjectItem(json2,"device_status")->valuestring);
     strcpy(dd[2].device_status,cJSON_GetObjectItem(json3,"device_status")->valuestring);
-    printf("device_status:%s\n",dd[0].device_status);
-    printf("device_status:%s\n",dd[1].device_status);
-    printf("device_status:%s\n",dd[2].device_status);
+    //printf("device_status:%s\n",dd[0].device_status);
+    //printf("device_status:%s\n",dd[1].device_status);
+    //printf("device_status:%s\n",dd[2].device_status);
 
     if(strcmp(dd[0].device_status,"1")==0)
     {
@@ -107,8 +109,6 @@ int main(int argc,char **argv)
         status=write(s,ble[1],1);
         sleep(2);
         status=write(s,ble[2],1);
-
-
         //printf("If you want to exit,please input : goodbye\n");
         //printf("Please input:)\n");
         /*do
@@ -123,8 +123,7 @@ int main(int argc,char **argv)
             status=write(s,ble[j],1);
             if(status<0) perror("uh oh");
         }*/
-
-        //vmlinuz.oldprintf("You have exit!\n");
+        //printf("You have exit!\n");
     }
     else
     {
@@ -134,5 +133,7 @@ int main(int argc,char **argv)
     free(json_data);
     cJSON_Delete(json);
     close(s);
+    sleep(10);
+    }
     return 0;
 }
