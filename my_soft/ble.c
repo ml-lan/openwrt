@@ -18,14 +18,13 @@ int main(int argc,char **argv)
     while(1)
     {
     system("wget http://104.224.163.27:8080/BLE/servlet/QueryDevicesServlet");
-    system("mv QueryDevicesServlet QueryResult.json");
     FILE *f;
     long len;
     char *content;
     cJSON *json,*json1,*json2,*json3;
     char *json_data=NULL;
     char *ble[3];
-    f=fopen("./QueryResult.json","rb");
+    f=fopen("./QueryDevicesServlet","rb");
     fseek(f,0,SEEK_END);
     len=ftell(f);
     fseek(f,0,SEEK_SET);
@@ -37,7 +36,7 @@ int main(int argc,char **argv)
     if(!json){
         printf("ERROR before:[%s]\n",cJSON_GetErrorPtr());
     }
-    //vmlinuz.oldprintf("%s\n",json_data=cJSON_Print(json));
+    printf("%s\n",json_data=cJSON_Print(json));
 
     json1=cJSON_GetObjectItem(json,"序号:0");
     json2=cJSON_GetObjectItem(json,"序号:1");
@@ -46,9 +45,9 @@ int main(int argc,char **argv)
     strcpy(dd[0].device_status,cJSON_GetObjectItem(json1,"device_status")->valuestring);
     strcpy(dd[1].device_status,cJSON_GetObjectItem(json2,"device_status")->valuestring);
     strcpy(dd[2].device_status,cJSON_GetObjectItem(json3,"device_status")->valuestring);
-    //printf("device_status:%s\n",dd[0].device_status);
-    //printf("device_status:%s\n",dd[1].device_status);
-    //printf("device_status:%s\n",dd[2].device_status);
+    printf("device_status:%s\n",dd[0].device_status);
+    printf("device_status:%s\n",dd[1].device_status);
+    printf("device_status:%s\n",dd[2].device_status);
 
     if(strcmp(dd[0].device_status,"1")==0)
     {
@@ -68,13 +67,13 @@ int main(int argc,char **argv)
     {
         ble[2]="c";
     }
-    else if(strcmp(dd[0].device_status,"0")==0){
+    else if(strcmp(dd[2].device_status,"0")==0){
         ble[2]="C";
     }
-    for(int j=0;j<3;j++)
-    {
-        printf("%s\n",ble[j]);
-    }
+
+    printf("%s\n",ble[0]);
+    printf("%s\n",ble[1]);
+    printf("%s\n",ble[2]);
 
     struct sockaddr_rc addr = {0};
     int s,status;
@@ -133,7 +132,8 @@ int main(int argc,char **argv)
     free(json_data);
     cJSON_Delete(json);
     close(s);
-    sleep(10);
+    system("rm -rf QueryDevicesServlet");
+    sleep(2);
     }
     return 0;
 }
