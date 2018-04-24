@@ -14,7 +14,7 @@ typedef struct{
 
 int main(int argc,char **argv)
 {
-
+    system("sh test.sh");
     while(1)
     {
     system("wget http://104.224.163.27:8080/BLE/servlet/QueryDevicesServlet");
@@ -45,9 +45,9 @@ int main(int argc,char **argv)
     strcpy(dd[0].device_status,cJSON_GetObjectItem(json1,"device_status")->valuestring);
     strcpy(dd[1].device_status,cJSON_GetObjectItem(json2,"device_status")->valuestring);
     strcpy(dd[2].device_status,cJSON_GetObjectItem(json3,"device_status")->valuestring);
-    printf("device_status:%s\n",dd[0].device_status);
-    printf("device_status:%s\n",dd[1].device_status);
-    printf("device_status:%s\n",dd[2].device_status);
+    //printf("device_status:%s\n",dd[0].device_status);
+    //printf("device_status:%s\n",dd[1].device_status);
+    //printf("device_status:%s\n",dd[2].device_status);
 
     if(strcmp(dd[0].device_status,"1")==0)
     {
@@ -71,14 +71,14 @@ int main(int argc,char **argv)
         ble[2]="C";
     }
 
-    printf("%s\n",ble[0]);
-    printf("%s\n",ble[1]);
-    printf("%s\n",ble[2]);
+    //printf("%s\n",ble[0]);
+    //printf("%s\n",ble[1]);
+    //printf("%s\n",ble[2]);
 
     struct sockaddr_rc addr = {0};
     int s,status;
     char *dest,*buf;
-    if(argc==2)
+    /*if(argc==2)
     {
         dest=argv[1];
     }
@@ -86,8 +86,9 @@ int main(int argc,char **argv)
     {
         printf("Pram error\n");
         exit(1);
-    }
+    }*/
     printf("Creat socket!\n");
+    dest="20:16:06:15:06:15";
     s=socket(PF_BLUETOOTH,SOCK_STREAM,BTPROTO_RFCOMM);
     if(s<0)
     {
@@ -104,9 +105,9 @@ int main(int argc,char **argv)
     {
         printf("scuess!\n");
         status=write(s,ble[0],1);
-        sleep(2);
+        sleep(1);
         status=write(s,ble[1],1);
-        sleep(2);
+        sleep(1);
         status=write(s,ble[2],1);
         //printf("If you want to exit,please input : goodbye\n");
         //printf("Please input:)\n");
@@ -133,7 +134,7 @@ int main(int argc,char **argv)
     cJSON_Delete(json);
     close(s);
     system("rm -rf QueryDevicesServlet");
-    sleep(2);
+    sleep(10);
     }
     return 0;
 }
