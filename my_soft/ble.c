@@ -1,20 +1,65 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <signal.h>
 #include <unistd.h>
 #include <sys/socket.h>
+#include <sys/param.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 #include <bluetooth/bluetooth.h>
 #include <bluetooth/rfcomm.h>
 #include <string.h>
 #include "cJSON.h"
 #include <unistd.h>
+#include <fcntl.h>
 
 typedef struct{
     char device_status[10];
 }Devices[3];
 
+void init_daemon()
+{
+    int pid;
+    int i;
+    pid = fork();
+    if(pid<0)
+    {
+        exit(1);
+    }
+    else if(pid>0)
+    {
+        exit(0);
+    }
+    setsid();
+    pid = fork();
+    if(pid>0)
+    {
+        exit(0);
+    }
+    else if(pid<0)
+    {
+        exit(1);
+    }
+    for(i=0;i<NOFILE;i++)
+    {
+        close(i);
+    }
+    chdir("/root/test");
+    umask(0);
+    return;
+}
+
 int main(int argc,char **argv)
 {
-    system("sh test.sh");
+    if((access("/var/lib/bluetooth/00:1A:7D:DA:71:13/20:16:06:15:06:15/info",F_OK))!=-1)
+    {
+        printf("exited\n");
+    }
+    else{
+        printf("not exited\n");
+    }
+    //system("sh test.sh");
+    init_daemon();
     while(1)
     {
     system("wget http://104.224.163.27:8080/BLE/servlet/QueryDevicesServlet");
@@ -36,7 +81,7 @@ int main(int argc,char **argv)
     if(!json){
         printf("ERROR before:[%s]\n",cJSON_GetErrorPtr());
     }
-    printf("%s\n",json_data=cJSON_Print(json));
+    //printf("%s\n",json_data=cJSON_Print(json));
 
     json1=cJSON_GetObjectItem(json,"序号:0");
     json2=cJSON_GetObjectItem(json,"序号:1");
@@ -78,15 +123,6 @@ int main(int argc,char **argv)
     struct sockaddr_rc addr = {0};
     int s,status;
     char *dest,*buf;
-    /*if(argc==2)
-    {
-        dest=argv[1];
-    }
-    else
-    {
-        printf("Pram error\n");
-        exit(1);
-    }*/
     printf("Creat socket!\n");
     dest="20:16:06:15:06:15";
     s=socket(PF_BLUETOOTH,SOCK_STREAM,BTPROTO_RFCOMM);
@@ -109,21 +145,6 @@ int main(int argc,char **argv)
         status=write(s,ble[1],1);
         sleep(1);
         status=write(s,ble[2],1);
-        //printf("If you want to exit,please input : goodbye\n");
-        //printf("Please input:)\n");
-        /*do
-        {
-            scanf("%s",buf);
-            status=write(s,buf,strlen(buf));
-            if(status<0) perror("uh oh");
-            printf("Please input:)\n");
-        }while(strcmp(buf,"goodbye")!=0);*/
-       /* for(int j=0;j<3;j++)
-        {
-            status=write(s,ble[j],1);
-            if(status<0) perror("uh oh");
-        }*/
-        //printf("You have exit!\n");
     }
     else
     {
@@ -134,7 +155,7 @@ int main(int argc,char **argv)
     cJSON_Delete(json);
     close(s);
     system("rm -rf QueryDevicesServlet");
-    sleep(10);
+    sleep(5);
     }
     return 0;
 }
