@@ -14,8 +14,8 @@
 #include <fcntl.h>
 
 typedef struct{
-    char device_status[10];
-}Devices[3];
+    char device_status[2];
+}Devices[5];
 
 void init_daemon()
 {
@@ -44,7 +44,7 @@ void init_daemon()
     {
         close(i);
     }
-    chdir("/root/test");
+    chdir("/root");
     umask(0);
     return;
 }
@@ -62,13 +62,13 @@ int main(int argc,char **argv)
     init_daemon();
     while(1)
     {
-    system("wget http://104.224.163.27:8080/BLE/servlet/QueryDevicesServlet");
+    system("wget http://104.224.163.27:8080/ble/servlet/QueryDevicesServlet");
     FILE *f;
     long len;
     char *content;
-    cJSON *json,*json1,*json2,*json3;
+    cJSON *json,*json1,*json2,*json3,*json4,*json5;
     char *json_data=NULL;
-    char *ble[3];
+    char *ble[5];
     f=fopen("./QueryDevicesServlet","rb");
     fseek(f,0,SEEK_END);
     len=ftell(f);
@@ -81,18 +81,20 @@ int main(int argc,char **argv)
     if(!json){
         printf("ERROR before:[%s]\n",cJSON_GetErrorPtr());
     }
-    //printf("%s\n",json_data=cJSON_Print(json));
+    printf("%s\n",json_data=cJSON_Print(json));
 
     json1=cJSON_GetObjectItem(json,"序号:0");
     json2=cJSON_GetObjectItem(json,"序号:1");
     json3=cJSON_GetObjectItem(json,"序号:2");
+    json4=cJSON_GetObjectItem(json,"序号:3");
+    json5=cJSON_GetObjectItem(json,"序号:4");
     Devices dd;
     strcpy(dd[0].device_status,cJSON_GetObjectItem(json1,"device_status")->valuestring);
     strcpy(dd[1].device_status,cJSON_GetObjectItem(json2,"device_status")->valuestring);
     strcpy(dd[2].device_status,cJSON_GetObjectItem(json3,"device_status")->valuestring);
+    strcpy(dd[3].device_status,cJSON_GetObjectItem(json4,"device_status")->valuestring);
+    strcpy(dd[4].device_status,cJSON_GetObjectItem(json5,"device_status")->valuestring);
     //printf("device_status:%s\n",dd[0].device_status);
-    //printf("device_status:%s\n",dd[1].device_status);
-    //printf("device_status:%s\n",dd[2].device_status);
 
     if(strcmp(dd[0].device_status,"1")==0)
     {
@@ -115,14 +117,25 @@ int main(int argc,char **argv)
     else if(strcmp(dd[2].device_status,"0")==0){
         ble[2]="C";
     }
-
-    //printf("%s\n",ble[0]);
-    //printf("%s\n",ble[1]);
-    //printf("%s\n",ble[2]);
+    if(strcmp(dd[3].device_status,"1")==0)
+    {
+        ble[3]="d";
+    }
+    else if(strcmp(dd[3].device_status,"0")==0){
+        ble[3]="D";
+    }
+    if(strcmp(dd[4].device_status,"1")==0)
+    {
+        ble[4]="e";
+    }
+    else if(strcmp(dd[4].device_status,"0")==0){
+        ble[4]="E";
+    }
 
     struct sockaddr_rc addr = {0};
     int s,status;
     char *dest,*buf;
+    int i=0;
     printf("Creat socket!\n");
     dest="20:16:06:15:06:15";
     s=socket(PF_BLUETOOTH,SOCK_STREAM,BTPROTO_RFCOMM);
@@ -140,11 +153,11 @@ int main(int argc,char **argv)
     if(status==0)
     {
         printf("scuess!\n");
-        status=write(s,ble[0],1);
-        sleep(1);
-        status=write(s,ble[1],1);
-        sleep(1);
-        status=write(s,ble[2],1);
+        for(i=0;i<5;i++)
+        {
+            status = write(s,ble[i],1);
+            sleep(1);
+        }
     }
     else
     {
@@ -154,8 +167,8 @@ int main(int argc,char **argv)
     free(json_data);
     cJSON_Delete(json);
     close(s);
-    system("rm -rf QueryDevicesServlet");
-    sleep(5);
+    system("rm -f QueryDevicesServlet");
+    sleep(2);
     }
     return 0;
 }
