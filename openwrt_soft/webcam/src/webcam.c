@@ -3,12 +3,51 @@
 #include <string.h>
 #include <stdarg.h>
 #include <mysql.h>
+#include <time.h>
+#include <signal.h>
+#include <unistd.h>
+#include <sys/param.h>
+#include <sys/types.h>
+#include <sys/stat.h>
 
 #define DEBUG        __FILE__,__LINE__
 
 
 static MYSQL s_my_connection;
 static int s_iDbconnected = 0; /*数据库连接标志 连接时为1,断开时为0*/
+
+void init_daemon()
+{
+    int pid;
+    int i;
+    pid = fork();
+    if(pid<0)
+    {
+        exit(1);
+    }
+    else if(pid>0)
+    {
+        exit(0);
+    }
+    setsid();
+    pid=fork();
+    if(pid>0)
+    {
+        exit(0);
+    }
+    else if(pid<0)
+    {
+        exit(1);
+    }
+    for(i=0;i<NOFILE;i++)
+    {
+        close(i);
+    }
+    chdir("/root");
+    umask(0);
+    return;
+}
+
 
 /*程序调试函数*/
 void debug(char *pFileName,int iLine,const char *fmt, ...)
@@ -90,7 +129,7 @@ int mysql_proc( void )
 }
 
 /*向MySQL数据库中存储图片*/
-int mysql_store_image(char *pFileName,char *pImageTableName,unsigned char ucIdFlag,int iId)
+int mysql_store_image(char *pFileName,char *pImageTableName,unsigned char ucIdFlag,int iId,char *pic_Time)
 {
 
 	FILE *fp;
@@ -100,7 +139,6 @@ int mysql_store_image(char *pFileName,char *pImageTableName,unsigned char ucIdFl
 	char szSql[2*1024*1000+1];
 	unsigned long ulReadLength = 0,ulStoreLength = 0;
 	int iRetCode = -1;
-
 
 	fp = fopen(pFileName,"rb");
 
@@ -135,11 +173,11 @@ int mysql_store_image(char *pFileName,char *pImageTableName,unsigned char ucIdFl
 	memset(szSql,0,sizeof(szSql));
 	if( 1==ucIdFlag )
 	{
-		sprintf(szSql,"insert into %s(id,name,data) values(%d,'%s','%s')",pImageTableName,iId,szImageName,szStoreImageData);
+		sprintf(szSql,"insert into %s(id,name,data,data_time) values(%d,'%s','%s','%s')",pImageTableName,iId,szImageName,szStoreImageData,pic_Time);
 	}
 	else
 	{
-		sprintf(szSql,"insert into %s(name,data) values('%s','%s')",pImageTableName,szImageName,szStoreImageData);
+		sprintf(szSql,"insert into %s(name,data,data_time) values('%s','%s','%s')",pImageTableName,szImageName,szStoreImageData,pic_Time);
 	}
 
 	iRetCode = mysql_query(&s_my_connection,szSql);
@@ -163,27 +201,42 @@ int main(int argc,char *argv[])
 	unsigned char ucIdFlag = 0;/*手动插入ID标志*/
 	int iRetCode = -1,iId =0;
 
-  	iRetCode = mysql_login(szServer,szUser,szPassword,szDatabase);
-	if( iRetCode )
-	{
-		return 1;
-	}
 
-	memset(szFileName,0,sizeof(szFileName));
-	memset(szTableName,0,sizeof(szTableName));
-	strcpy(szFileName,"2.jpg");
-	strcpy(szTableName,"webcam_pic");
-	ucIdFlag = 0;
-	iId =1;
 
-	iRetCode = mysql_store_image( szFileName,szTableName,ucIdFlag,iId );
+    time_t t = time(0);
+    char pic_time[255];
 
-	if( !iRetCode )
-	{
-		fprintf(stderr,"Image has been stored in the database !\n");
-	}
 
-	mysql_logout();
+    init_daemon();
+    while(1)
+    {
+
+        system("wget 127.0.0.1:8080/?action=snapshot");
+        system("mv index.html?action=snapshot 1.jpg");
+    	iRetCode = mysql_login(szServer,szUser,szPassword,szDatabase);
+    	if( iRetCode )
+    	{
+    		return 1;
+    	}
+    	memset(szFileName,0,sizeof(szFileName));
+	    memset(szTableName,0,sizeof(szTableName));
+    	strcpy(szFileName,"1.jpg");
+	    strcpy(szTableName,"webcam_pic");
+    	ucIdFlag = 0;
+	    iId =1;
+
+        strftime(pic_time,255,"%Y-%m-%d %T",localtime(&t));
+    	iRetCode = mysql_store_image( szFileName,szTableName,ucIdFlag,iId,pic_time );
+
+	    if( !iRetCode )
+	    {
+            fprintf(stderr,"Image has been stored in the database !\n");
+	    }
+
+	    mysql_logout();
+
+        system("rm -f 1.jpg");
+    }
 
 	return 0;
 }
