@@ -1,0 +1,44 @@
+body {
+  font-family: "Segoe UI", "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans","wenquanyi micro hei","Hiragino Sans GB", "Hiragino Sans GB W3", Arial, sans-serif;
+}
+.header {
+	text-align: center;
+	background-color:#0E90D2;
+	color:white;
+}
+.am-menu-dropdown1 .am-menu-toggle {
+    position: absolute;
+    right: 16px;
+    top: -88px;
+    display: block;
+    width: 44px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    color: #fff;
+}
+
+.header h1 a{
+	font-size: 200%;
+	color:white;
+	margin-top: 30px;
+}
+
+.header p {
+	font-size: 14px;
+}
+.am-article-bd p{
+	text-indent: 2em;
+}
+
+.am-footer{
+	padding: 20px 0 10px;
+    background: #555;
+    color: #999;
+}
+.am-footer-default a{
+	color: #f8f8f8;
+}
+.clear{
+	clear:both;
+}
